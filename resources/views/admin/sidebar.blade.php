@@ -42,13 +42,13 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="/admin/users" class="{{ Request::getPathInfo() == '/admin/users' ? 'nav-link active' : 'nav-link'}}">
+              <a href="{{route('users.index')}}" class="{{ Request::getPathInfo() == '/admin/users' ? 'nav-link active' : 'nav-link'}}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>All User</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/admin/users/create" class="{{ Request::getPathInfo() == '/admin/users/create' ? 'nav-link active' : 'nav-link'}}">
+              <a href="{{route('users.create')}}" class="{{ Request::getPathInfo() == '/admin/users/create' ? 'nav-link active' : 'nav-link'}}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Add User</p>
               </a>
