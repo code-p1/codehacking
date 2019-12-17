@@ -27,6 +27,7 @@
                 <table class="table table-head-fixed">
                     <thead>
                         <tr>
+                            <th>Photo</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
@@ -39,7 +40,9 @@
                         @if ($users)
                         @foreach ($users as $user)
                         <tr>
-                            <td>{{$user->name}}</td>
+                                {{-- {{$user->photo ? $user->photo->file : 'No user photo'}} --}}
+                            <td><img height="50" width="50" src="{{$user->photo ? $user->photo->file : 'http://placehold.it/50x50'}}" alt=""></td>
+                            <td><a href="{{route('users.edit', $user->id)}}">{{$user->name}}</a></td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->role->name}}</td>
                             <td>{{$user->is_active ? 'Active' : 'Not Active'}}</td>
