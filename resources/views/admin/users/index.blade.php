@@ -1,6 +1,11 @@
 @extends('layouts.index')
 
 @section('content')
+
+@if (Session::has('deleted_user'))
+    <p class="alert alert-danger">{{ session('deleted_user') }}</p>
+@endif
+
 <h1>This is index User</h1>
 
 {{-- {!! Form::submit('Create Post', ['class'=>'form-group']) !!} --}}

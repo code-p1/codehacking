@@ -12,7 +12,7 @@
             class="img-responsive img-rounded">
 
     </div>
-    <div class="col-sm-7">
+    <div class="col-sm-8">
 
         {!! Form::model($user, ['method'=>'PATCH', 'action'=> ['AdminUsersController@update', $user->id],
         'files'=>true])
@@ -49,9 +49,20 @@
         </div>
 
         <div class="form-group">
-            {!! Form::submit('Edit User', ['class'=>'btn btn-primary']) !!}
+            {!! Form::submit('Edit User', ['class'=>'btn btn-primary col-sm-6']) !!}
         </div>
 
         {!! Form::close() !!}
-    </div>
+    
+
+        {!! Form::open(['method' => 'DELETE', 'action' => ['AdminUsersController@destroy', $user->id], 'class' => 'pull-right']) !!}
+
+            <div class="form-group">
+                {!! Form::submit('Delete User', ['class' => 'btn btn-danger col-sm-6']) !!}
+            </div>
+
+        {!! Form::close() !!}
+
+</div>
+
 @endsection
