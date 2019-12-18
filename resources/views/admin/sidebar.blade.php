@@ -56,6 +56,30 @@
           </ul>
         </li>
 
+        <li class="{{ Request::getPathInfo() == '/admin/posts' || Request::getPathInfo() == '/admin/posts/create' ? 'nav-item has-treeview menu-open' : 'nav-item has-treeview'}}">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-chalkboard"></i>
+            <p>
+              Posts
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{route('posts.index')}}" class="{{ Request::getPathInfo() == '/admin/posts' ? 'nav-link active' : 'nav-link'}}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>All Post</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{route('posts.create')}}" class="{{ Request::getPathInfo() == '/admin/posts/create' ? 'nav-link active' : 'nav-link'}}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Add Posts</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
         <li class="nav-item">
           <a href={{ route('logout') }} class="nav-link"  onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">
