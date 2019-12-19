@@ -32,7 +32,8 @@
           </a>
         </li>
 
-        <li class="{{ Request::getPathInfo() == '/admin/users' || Request::getPathInfo() == '/admin/users/create' ? 'nav-item has-treeview menu-open' : 'nav-item has-treeview'}}">
+        <li
+          class="{{ Request::getPathInfo() == '/admin/users' || Request::getPathInfo() == '/admin/users/create' ? 'nav-item has-treeview menu-open' : 'nav-item has-treeview'}}">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-users"></i>
             <p>
@@ -42,13 +43,15 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="{{route('users.index')}}" class="{{ Request::getPathInfo() == '/admin/users' ? 'nav-link active' : 'nav-link'}}">
+              <a href="{{route('users.index')}}"
+                class="{{ Request::getPathInfo() == '/admin/users' ? 'nav-link active' : 'nav-link'}}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>All User</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{route('users.create')}}" class="{{ Request::getPathInfo() == '/admin/users/create' ? 'nav-link active' : 'nav-link'}}">
+              <a href="{{route('users.create')}}"
+                class="{{ Request::getPathInfo() == '/admin/users/create' ? 'nav-link active' : 'nav-link'}}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Add User</p>
               </a>
@@ -56,7 +59,8 @@
           </ul>
         </li>
 
-        <li class="{{ Request::getPathInfo() == '/admin/posts' || Request::getPathInfo() == '/admin/posts/create' ? 'nav-item has-treeview menu-open' : 'nav-item has-treeview'}}">
+        <li
+          class="{{ Request::getPathInfo() == '/admin/posts' || Request::getPathInfo() == '/admin/posts/create' ? 'nav-item has-treeview menu-open' : 'nav-item has-treeview'}}">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-chalkboard"></i>
             <p>
@@ -66,13 +70,15 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="{{route('posts.index')}}" class="{{ Request::getPathInfo() == '/admin/posts' ? 'nav-link active' : 'nav-link'}}">
+              <a href="{{route('posts.index')}}"
+                class="{{ Request::getPathInfo() == '/admin/posts' ? 'nav-link active' : 'nav-link'}}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>All Post</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{route('posts.create')}}" class="{{ Request::getPathInfo() == '/admin/posts/create' ? 'nav-link active' : 'nav-link'}}">
+              <a href="{{route('posts.create')}}"
+                class="{{ Request::getPathInfo() == '/admin/posts/create' ? 'nav-link active' : 'nav-link'}}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Add Posts</p>
               </a>
@@ -80,8 +86,46 @@
           </ul>
         </li>
 
+
         <li class="nav-item">
-          <a href={{ route('logout') }} class="nav-link"  onclick="event.preventDefault();
+          <a href="{{route('categories.index')}}" class="{{ Request::getPathInfo() == '/admin/categories' ? 'nav-link active' : 'nav-link'}}">
+            <i class="nav-icon fas fa-box"></i>
+            <p>
+              category
+            </p>
+          </a>
+        </li>
+
+        <li
+        class="{{ Request::getPathInfo() == '/admin/media' || Request::getPathInfo() == '/admin/media/upload' ? 'nav-item has-treeview menu-open' : 'nav-item has-treeview'}}">
+        <a href="#" class="nav-link">
+          <i class="nav-icon fas fa-chalkboard"></i>
+          <p>
+            Media
+            <i class="right fas fa-angle-left"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="{{route('media.index')}}"
+              class="{{ Request::getPathInfo() == '/admin/media' ? 'nav-link active' : 'nav-link'}}">
+              <i class="far fa-circle nav-icon"></i>
+              <p>All Media</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('media.create')}}"
+              class="{{ Request::getPathInfo() == '/admin/media/upload' ? 'nav-link active' : 'nav-link'}}">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Upload Media</p>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+
+        <li class="nav-item">
+          <a href={{ route('logout') }} class="nav-link" onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
@@ -90,7 +134,7 @@
           </a>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
-        </form>
+          </form>
         </li>
 
       </ul>
