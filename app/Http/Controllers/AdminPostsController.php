@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Photo;
 use App\Category;
+use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -143,5 +144,17 @@ class AdminPostsController extends Controller
 
         return redirect('/admin/posts');
 
+    }
+
+    public function post($id)
+    {
+
+        $post = Post::findOrFail($id);
+        $comments = Comment::whereIsActive(1)->get();
+
+        return view('post',[
+            'post'=>$post,
+            'comments' => $comments
+        ]);
     }
 }

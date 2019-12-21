@@ -28,11 +28,13 @@
                     <table class="table table-head-fixed">
                         <thead>
                             <tr>
+                                <th>Photo</th>
                                 <th>User</th>
                                 <th>Category</th>
-                                <th>Photo</th>
                                 <th>Title</th>
-                                <th>Body?</th>
+                                <th>Body</th>
+                                <th></th>
+                                <th></th>
                                 <th>Created</th>
                                 <th>Updated</th>
                             </tr>
@@ -49,6 +51,8 @@
                                 <td>{{ $post->category ? $post->category->name : 'Uncategories' }}</td>
                                 <td>{{$post->title}}</td>
                                 <td>{{ str_limit($post->body, 30) }}</td>
+                                <td><a href="{{ route('home.post', $post->id) }}">View Post</a></td>
+                                <td><a href="{{ route('comments.show',$post->id) }}">View Comments</a></td>
                                 @if ($post->created_at && $post->updated_at)
                                 <td>{{$post->created_at->diffForHumans()}}</td>
                                 <td>{{$post->updated_at->diffForHumans()}}</td>

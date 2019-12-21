@@ -83,12 +83,20 @@
                 <p>Add Posts</p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="{{route('comments.index')}}"
+                class="{{ Request::getPathInfo() == '/admin/comments' ? 'nav-link active' : 'nav-link'}}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>All Comments</p>
+              </a>
+            </li>
           </ul>
         </li>
 
 
         <li class="nav-item">
-          <a href="{{route('categories.index')}}" class="{{ Request::getPathInfo() == '/admin/categories' ? 'nav-link active' : 'nav-link'}}">
+          <a href="{{route('categories.index')}}"
+            class="{{ Request::getPathInfo() == '/admin/categories' ? 'nav-link active' : 'nav-link'}}">
             <i class="nav-icon fas fa-box"></i>
             <p>
               category
@@ -97,31 +105,31 @@
         </li>
 
         <li
-        class="{{ Request::getPathInfo() == '/admin/media' || Request::getPathInfo() == '/admin/media/upload' ? 'nav-item has-treeview menu-open' : 'nav-item has-treeview'}}">
-        <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-chalkboard"></i>
-          <p>
-            Media
-            <i class="right fas fa-angle-left"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="{{route('media.index')}}"
-              class="{{ Request::getPathInfo() == '/admin/media' ? 'nav-link active' : 'nav-link'}}">
-              <i class="far fa-circle nav-icon"></i>
-              <p>All Media</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{route('media.create')}}"
-              class="{{ Request::getPathInfo() == '/admin/media/upload' ? 'nav-link active' : 'nav-link'}}">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Upload Media</p>
-            </a>
-          </li>
-        </ul>
-      </li>
+          class="{{ Request::getPathInfo() == '/admin/media' || Request::getPathInfo() == '/admin/media/upload' ? 'nav-item has-treeview menu-open' : 'nav-item has-treeview'}}">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-chalkboard"></i>
+            <p>
+              Media
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{route('media.index')}}"
+                class="{{ Request::getPathInfo() == '/admin/media' ? 'nav-link active' : 'nav-link'}}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>All Media</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{route('media.create')}}"
+                class="{{ Request::getPathInfo() == '/admin/media/upload' ? 'nav-link active' : 'nav-link'}}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Upload Media</p>
+              </a>
+            </li>
+          </ul>
+        </li>
 
 
         <li class="nav-item">
