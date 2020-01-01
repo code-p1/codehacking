@@ -111,6 +111,6 @@ class CommentRepliesController extends Controller
     {
         CommentReply::findOrFail($id)->delete();
 
-        return redirect()->back();
+        return redirect()->back();  
     }
 }

@@ -12,20 +12,10 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">User</h3>
-    
-                    <div class="card-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-    
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body table-responsive p-0" style="height: 450px;">
-                    <table class="table table-head-fixed">
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th>Photo</th>
@@ -50,8 +40,8 @@
                                 <td><a href="{{ route('posts.edit', $post->id) }}">{{ $post->user->name }}</a></td>
                                 <td>{{ $post->category ? $post->category->name : 'Uncategories' }}</td>
                                 <td>{{$post->title}}</td>
-                                <td>{{ str_limit($post->body, 30) }}</td>
-                                <td><a href="{{ route('home.post', $post->id) }}">View Post</a></td>
+                                <td>{!! str_limit($post->body, 30) !!}</td>
+                                <td><a href="{{ route('home.post', $post->slug) }}" target="_blank">View Post</a></td>
                                 <td><a href="{{ route('comments.show',$post->id) }}">View Comments</a></td>
                                 @if ($post->created_at && $post->updated_at)
                                 <td>{{$post->created_at->diffForHumans()}}</td>
@@ -76,4 +66,35 @@
             <!-- /.card -->
         </div>
     </div>
+@endsection
+
+@section('script')
+
+<!-- jQuery -->
+<script src="{{ asset('lte/plugins/jquery/jquery.min.js') }}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- DataTables -->
+<script src="{{ asset('lte/plugins/datatables/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('lte/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('lte/dist/js/adminlte.min.js') }}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{ asset('lte/dist/js/demo.js') }}"></script>
+<script>
+    $(function () {
+      $("#example1").DataTable({
+        "pageLength": 5,
+        "lengthMenu": [[1, 5, 10, 100], [1, 5, 10, 100]]
+      });
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+      });
+    });
+  </script>
 @endsection

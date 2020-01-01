@@ -5,7 +5,7 @@
 
 @include('includes.form_error')
 
-
+@include('includes.tinyeditor')   
 
 <div class="row">
 
